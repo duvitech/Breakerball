@@ -1,0 +1,28 @@
+sudo apt-get update
+sudo apt-get dist-upgrade -u -y
+sudo apt-get install -y libpython-dev libpython3-dev python-dev
+sudo apt-get install -y arduino-mk arduino
+sudo apt-get install -y libmraa-dev libupm-dev libsoc-dev
+sudo apt-get install -y scratch python-pip
+pip install spidev
+sudo apt-get clean
+
+#extract the tar file
+tar -vxf ~/breakerball.tar
+
+#attempt to install the Arduino program on the Sensors board
+cd breakerball_sensor
+make upload
+
+#place the appropriate icon on the desktop
+if [ "$?" = "0" ]; then
+	sudo cp pyupm_i2clcd.py /usr/lib/python2.7/dist-packages/pyupm_i2clcd.py
+	cp ~/breakerball_sensor/go ~/Desktop/BreakerBall_Sensor
+else
+#	sudo dd if=~/boot-db410c.img of=/dev/mmcblk0p8
+	echo You may need to rebuild the kernel with support for spidev.
+	cp ~/breakerball_linker/go ~/Desktop/BreakerBall_Linker
+fi
+
+echo Issue the following command manually
+echo sudo reboot now

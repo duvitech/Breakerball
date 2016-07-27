@@ -1,0 +1,4 @@
+#!/bin/sh
+scratch ~/breakerball_scratch/breakerball.sb &
+sleep 15
+sudo python ~/breakerball_linker/slider_spi.py
