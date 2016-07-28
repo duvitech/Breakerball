@@ -14,15 +14,15 @@ Debian Install Procedure (this will fail if a Linker card or a Sensor card is at
     - Note: I used 84, but newer builds should work. Change the 84 to ‘latest’.
   - Download the Debian SDCard install file "dragonboard410c_sdcard_install_debian-84.zip" to your local Downloads directory. This is the only file you need from the directory.
   - Right click on the downloaded zip file and select "extract All.." remember where you extracted to!
-  - Copy the two files "breakerball.tar" and "Install" to your Downloads directory from HERE.
+  - Copy the the download zip files from github Downloads directory and extract the source.
   - Put the USB stick into a USB port on your laptop. Ensure it has at least 256MB of free space.
   - Right click on the USB Stick and format it, ensure the disk name is "DRAGON", this name is used later.
-  - Copy the files from your Download directory to the USB Stick.
-    - You should have 2 files, "Install" and "breakerball.tar".
+  - Copy the source files from your Download directory to the USB Stick.
+    - You should have several files, and 3 directories.
   - Remove the USB Stick from your laptop and set it aside for now.
   - Start WinDisk32Imager.exe, (if you do not have this program download and install it from https://sourceforge.net/projects/win32diskimager/ )
   - Put the Install SDCard into the SDCard slot on your laptop.
-  - Use Win32DiskImager to copy the file you extracted from the 96Boards download in the steps above. The extracted file “db410_sd_install_debian.img” is copied to the Install SDCard.
+  - Use Win32DiskImager to copy the file you extracted from the 96Boards download in the steps above. The extracted file 'db410_sd_install_debian.img' is copied to the Install SDCard.
     - Select the img file, then press the "Write" button to copy it over (about 5 minutes)
   - Remove the Install SDCard from the laptop and insert it into the DragonBoard
   - On the DragonBoard 410c ensure DIP switch 2 (SD Boot) is turned ON, all others off
@@ -30,9 +30,9 @@ Debian Install Procedure (this will fail if a Linker card or a Sensor card is at
   - Connect the HDMI monitor to the DragonBoard
   - Connect the power supply. The Board should display the installer in about 15 seconds
   - Run the Install by hitting the ‘i’ then <Enter> keys (about 2 minutes 20 seconds)
-  - Remove power from the board
  
 Now that Debian is installed we can connect the Linker or Sensors card to the 410c.
+  - Remove power from the board
   - Remove the Install SDCard, and connect the USB Stick to a USB port
   - Connect the Linker card, or the Sensors card to the DragonBoard410c.
     - Take the time to install all of the standoffs and screws.
@@ -43,14 +43,14 @@ Now that Debian is installed we can connect the Linker or Sensors card to the 41
       - One from A1 to the rotary pot
       - One from I2C0 to the 2x16 LCD display.
   - Connect power to the DragonBoard, it should boot to Debian in about 20 seconds.
-  - Click on the network icon in the lower right of the screen and WiFi connect to Hydra (or any other network). 
+  - Click on the network icon in the lower right of the screen and WiFi connect to a network). 
     - You need this because the install script loads a bunch of stuff from the net.
   - Open a command window: click Debian Start -> System Tools -> LXTerminal
   - In the LXTerminal Window enter the following commands
-    - cp /media/linaro/DRAGON/*  .
+    - cp -r /media/linaro/DRAGON/*  .
     - chmod +x Install
     - ./Install
-  - The Install script will extract the zip files, put icons on the desktop, install code onto the Sensors mezzanine board (if connected) and (if necessary) update the operating system. (about 10 minutes)
+  - The Install script will update the OS, add several packages, put icons on the desktop, and install code onto the Sensors mezzanine board (if connected)
   - Once the script completes you should see one of two BreakerBall icons, one for the Sensors board, or one for the Linker Board
   - Double Click on the BreakerBall icon.
     - It will ask you if you want to Execute, or Execute in a terminal, doesn’t matter which you choose.
