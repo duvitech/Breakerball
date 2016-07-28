@@ -1,3 +1,8 @@
+#!/bin/sh
+#
+# Copyright (c) 2016 Lawrence King lawrencek52@gmail.com
+# All Rights Reserved
+#
 sudo apt-get update
 sudo apt-get dist-upgrade -u -y
 sudo apt-get install -y libpython-dev libpython3-dev python-dev

@@ -1,3 +1,6 @@
+#
+# Copyright (c) 2016 Lawrence King lawrencek52@gmail.com All Rights Reserved.
+#
 import serial
 from array import array
 import socket

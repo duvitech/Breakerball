@@ -1,4 +1,6 @@
 #!/bin/sh
+# Copyright (c) 2016 Lawrence King lawrencek52@gmail.com All rights reserved
+#
 scratch ~/breakerball_scratch/breakerball.sb &
 sleep 15
 sudo python ~/breakerball_linker/slider_spi.py
